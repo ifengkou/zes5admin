@@ -35,5 +35,7 @@
     "cordova-plugin-network-information",
     "cordova-plugin-x-toast"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

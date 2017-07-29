@@ -159,7 +159,7 @@
         if ($scope.loginData.username && $scope.loginData.password) {
           var hash = CryptoJS.SHA1($scope.loginData.password);
           var _password = hash.toString(CryptoJS.enc.Base64);
-          $log.info(_password.toUpperCase());
+          //$log.info(_password.toUpperCase());
           $ionicLoading.show();
           User.login($scope.loginData.username, _password.toUpperCase()).$promise.then(loginCallback, function(e){
             $ionicLoading.show({

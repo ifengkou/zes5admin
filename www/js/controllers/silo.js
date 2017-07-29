@@ -7,6 +7,8 @@
     .controller('SiloCtrl', function ($scope, $rootScope, $log,Silos) {
       $log.debug('SiloCtrl');
       $scope.titles =[];
+      $scope.ids=[];
+
       $scope.silos = Silos.getSilos();
       $scope.loadError = false;
 
@@ -17,8 +19,9 @@
           $scope.silos = response.data;
           for (var i = 0; i < $scope.silos.length; i++) {
             var node = $scope.silos[i];
-            if($scope.titles.indexOf(node.ProductLineID)<0){
-              $scope.titles.push(node.ProductLineID);
+            if($scope.ids.indexOf(node.ProductLineID)<0){
+              $scope.ids.push(node.ProductLineID);
+              $scope.titles.push({"id":node.ProductLineID,"name":node.ProductLineName});
             }
           }
           $scope.loadError = false;

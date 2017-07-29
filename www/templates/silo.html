@@ -18,9 +18,9 @@
     <ion-list>
 
       <div class="item zero_padding" ng-repeat="bean in titles">
-        <h3 class="key_item">生产线{{bean}}</h3>
+        <h3 class="key_item">生产线:{{bean.name}}</h3>
 
-        <div class="item item-icon-left small_top_padding" ng-repeat="item in silos |filter:{'ProductLineID':bean}">
+        <div class="item item-icon-left small_top_padding" ng-repeat="item in silos |filter:{'ProductLineID':bean.id}">
           <p class="icon">
           <div class="bar bar-header bar-stable siloBar">
           <!--energized assertive-->
@@ -28,10 +28,10 @@
                  ng-style="{'height':'{{item.content/item.maxContent<0? 0:(item.content/item.maxContent>1?100:item.content/item.maxContent*100)}}%'}"></div>
           </div>
           </p>
-          <div><b>{{item.siloId}}</b> [<span style="font-size: 14px;">{{item.siloName}}</span>]</div>
+          <div>[<span style="font-size: 14px;">{{item.siloName}}</span>]</div>
           <p><span class="consPos">{{item.stuffName}}</span>
             <span style="float:right">
-              <span  class="castMode">{{item.content}}</span>
+              <span  class="castMode">{{item.content/1000 | number:1}} 吨</span>
               <span class="conStrength">{{item.content/item.maxContent *100 | number:1}}%</span>
             </span>
           </p>
