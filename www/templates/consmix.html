@@ -1,0 +1,20 @@
+<ion-view view-title="配比材料组成">
+  <ion-nav-buttons side="right">
+    <button class="button button-royal" ng-click="auditConsMix()"
+            ng-disabled="username == null">审核配比</button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-refresher ng-if="stuffs.length >= 0 || loadError" pulling-text="下拉刷新..."
+                   on-refresh="doRefresh()" refreshing-icon="ion-loading-c"></ion-refresher>
+    <ion-list class="stuffs">
+      <ion-item class="item-input" collection-repeat="bean in stuffs"
+                collection-item-width="'100%'">
+        <p class="row">
+          <!--<b>{{bean.siloId}}</b> -->
+          <span class="col col-67">{{bean.siloName}} [{{bean.stuffName}}]</span>
+          <span class="col col-33 text_align_right planCubes">{{bean.amount}}</span>
+        </p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

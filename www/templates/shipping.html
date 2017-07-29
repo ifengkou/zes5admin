@@ -1,0 +1,47 @@
+<ion-view view-title="生产统计查询">
+  <ion-content class="has-header shipping">
+    <ion-list>
+      <label class="item item-input">
+        <div class="input-label">
+          <p>起始时间</p>
+        </div>
+        <input type="date" ng-model="dateBean.beginTime">
+      </label>
+      <label class="item item-input">
+        <div class="input-label">
+          <p>结束时间</p>
+        </div>
+        <input type="date" ng-model="dateBean.endTime">
+      </label>
+      <!--<ion-item class="searchBar item-input ">
+          <input type="date" ng-model="dateBean.endTime">
+      </ion-item>-->
+      <ion-item class="item-divider">
+        <span class="buttonSpan"><button  style="float:right" class="button button-small button-royal" ng-disabled="isSearching" ng-click="doSearch()"><i class="icon ion-ios-search"></i> 统 计 查 询 </button></span>
+      </ion-item>
+      <ion-item class="item-input stat_item">
+          <p class="stat_span row">
+            <span class="col col-50">出票方量:<span class="produceCubes" ng-show="statData.sendCubes">{{statData.sendCubes | number:1}} 方</span></span>
+            <span class="col col-50">调度方量:<span class="planCubes" ng-show="statData.parCubes">{{statData.parCubes | number:1}} 方</span></span>
+          </p>
+      </ion-item>
+    </ion-list>
+
+    <div class="item item-divider zero_padding">
+      <p class="row">
+        <span class="col col-40">工程</span>
+        <span class="col col-20">强度</span>
+        <span class="col col-20">出票方量</span>
+        <span class="col col-20">调度方量</span>
+      </p>
+    </div>
+    <div class="item zero_padding" collection-repeat="item in shipping">
+      <p class="row">
+        <span class="col col-40 text_newLine">{{item.projectName}}</span> <!--| limitTo:10-->
+        <span class="col col-20 text_newLine">{{item.conStrength}}</span>
+        <span class="col col-20 produceCubes text_align_right">{{item.sendCubes}} 方</span>
+        <span class="col col-20 planCubes text_align_right">{{item.parCubes}} 方</span>
+      </p>
+    </div>
+  </ion-content>
+</ion-view>

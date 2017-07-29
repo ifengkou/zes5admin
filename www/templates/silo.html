@@ -1,0 +1,49 @@
+<ion-view view-title="原料当前库存">
+  <ion-content class="has-header silo">
+    <!--<ion-list>
+      <ion-item class="item-icon-left">
+        <p>当前原材料库存200吨</p>
+
+        <p class="icon">
+
+        <div style="width:42px;height:100%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;"
+             class="bar bar-header bar-stable">
+          <div style="width:42px;height:50%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;position: absolute;left:0;bottom:0"class="bar  bar-energized"></div>
+        </div>
+        </p>
+      </ion-item>
+    </ion-list>-->
+    <ion-refresher ng-if="silos.length > 0 || loadError" pulling-text="下拉刷新..."
+                   on-refresh="doRefresh()" refreshing-icon="ion-loading-c"></ion-refresher>
+    <ion-list>
+
+      <div class="item zero_padding" ng-repeat="bean in titles">
+        <h3 class="key_item">生产线{{bean}}</h3>
+
+        <div class="item item-icon-left small_top_padding" ng-repeat="item in silos |filter:{'ProductLineID':bean}">
+          <p class="icon">
+          <div class="bar bar-header bar-stable siloBar">
+          <!--energized assertive-->
+            <div ng-class="{true: 'bar siloBarFont bar-energized', false: 'bar siloBarFont bar-positive'}[item.content/item.maxContent<0.2||item.content/item.maxContent>=1]"
+                 ng-style="{'height':'{{item.content/item.maxContent<0? 0:(item.content/item.maxContent>1?100:item.content/item.maxContent*100)}}%'}"></div>
+          </div>
+          </p>
+          <div><b>{{item.siloId}}</b> [<span style="font-size: 14px;">{{item.siloName}}</span>]</div>
+          <p><span class="consPos">{{item.stuffName}}</span>
+            <span style="float:right">
+              <span  class="castMode">{{item.content}}</span>
+              <span class="conStrength">{{item.content/item.maxContent *100 | number:1}}%</span>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <!--<ion-item class="item-divider">
+      </ion-item>
+      <ion-item ng-repeat="item in silos">
+        <div><b>{{item.siloId}}</b> - <span>{{item.siloName}}</span> </div>
+        <p><span>{{item.stuffName}}</span> <span>目前剩余：{{item.content}} /{{item.maxContent}}</span></p>
+      </ion-item>-->
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,92 @@
+<ion-view view-title="今日生产情况">
+  <ion-content class="has-header dispatch">
+    <ion-refresher ng-if="dispatchs.length >= 0 || loadError" pulling-text="下拉刷新..."
+                   on-refresh="doRefresh()" refreshing-icon="ion-loading-c"></ion-refresher>
+    <ion-list>
+      <ion-item class="item-divider">
+        <p>生产进度统计</p>
+      </ion-item>
+      <ion-item class="zero_item">
+        <p>
+          <b>当日</b>
+          <span class="stat_span">
+            任务数:<span class="planNum">{{statData.today.planNum}} 个</span>
+            已产:<span class="produceCubes">{{statData.today.produceCubes}} 方</span>
+            计划:<span class="planCubes">{{statData.today.planCubes}} 方</span>
+          </span>
+        </p>
+      </ion-item>
+      <ion-item class="zero_item">
+        <p>
+          <b>当月</b>
+          <span class="stat_span">
+            任务数:<span class="planNum">{{statData.month.planNum}} 个</span>
+            已产:<span class="produceCubes">{{statData.month.produceCubes}} 方</span>
+            计划:<span class="planCubes">{{statData.month.planCubes}} 方</span>
+          </span>
+        </p>
+      </ion-item>
+      <ion-item class="zero_item">
+        <p>
+          <b>本年</b>
+        <span class="stat_span">
+          任务数:<span class="planNum">{{statData.year.planNum}} 个</span>
+          已产:<span class="produceCubes">{{statData.year.produceCubes}} 方</span>
+          计划:<span class="planCubes">{{statData.year.planCubes}} 方</span>
+        </span>
+        </p>
+      </ion-item>
+    </ion-list>
+
+    <div class="item item-divider">
+      <p>正在生产任务</p>
+    </div>
+    <div class="item first_item" ng-repeat="bean in dispatchs">
+      <!--collection-item-height="230"-->
+      <h3 class="key_item">{{bean.key}}</h3>
+
+      <div class="item second_item" ng-repeat="item in bean.list">
+        <p>{{item.projectName}}</p>
+
+        <p>{{item.constructUnit}}
+        </p>
+
+        <p>
+          <span class="small conStrength">{{item.conStrength}}</span>
+          <span class="small consPos">{{item.consPos}}</span>
+          <span class="small castMode">{{item.castMode}}</span>
+        </p>
+      </div>
+    </div>
+    <!--<div class="item" ng-repeat="bean in dispatchs">
+      &lt;!&ndash;collection-item-height="230"&ndash;&gt;
+      <h3>{{bean.key}}</h3>
+
+      <div ng-repeat="item in bean.list">
+        <p>{{item.projectName}}-{{item.constructUnit}}
+        </p>
+
+        <p>
+          <span class="small conStrength">{{item.conStrength}}</span>
+          <span class="small consPos">{{item.consPos}}</span>
+          <span class="small castMode">{{item.castMode}}</span>
+        </p>
+      </div>
+    </div>-->
+    <!--<ion-list>
+      <ion-item collection-repeat="item in bean.list track by item.id"
+                collection-item-width="'100%'">
+        <p>{{item.projectName}}</p>
+
+        <p>{{item.constructUnit}}</p>
+
+        <p>
+          <span class="small conStrength">{{item.conStrength}}</span>
+          <span class="small consPos">{{item.consPos}}</span>
+          <span class="small castMode">{{item.castMode}}</span>
+        </p>
+      </ion-item>
+    </ion-list>-->
+
+  </ion-content>
+</ion-view>

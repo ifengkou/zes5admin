@@ -1,0 +1,26 @@
+<!--<script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers/signin.js"></script>
+    <script src="js/controllers/user.js"></script>
+    <script src="js/controllers/app.js"></script>
+    <script src="js/controllers/settings.js"></script>
+    <script src="js/controllers/consmixs.js"></script>
+    <script src="js/controllers/consmix.js"></script>
+    <script src="js/controllers/dispatch.js"></script>
+    <script src="js/controllers/plans.js"></script>
+    <script src="js/controllers/shipping.js"></script>
+    <script src="js/controllers/silo.js"></script>
+    <script src="js/controllers/tasks.js"></script>
+
+    <script src="js/services/storage.js"></script>
+    <script src="js/services/settings.js"></script>
+    <script src="js/services/user.js"></script>
+    <script src="js/services/_sys.js"></script>
+    <script src="js/services/consmixs.js"></script>
+    <script src="js/services/consmix.js"></script>
+    <script src="js/services/dispatch.js"></script>
+    <script src="js/services/plans.js"></script>
+    <script src="js/services/shipping.js"></script>
+    <script src="js/services/silo.js"></script>
+    <script src="js/services/tasks.js"></script>-->

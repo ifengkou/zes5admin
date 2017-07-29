@@ -1,0 +1,61 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button class="button-clear">
+        <i class="icon ion-ios7-arrow-back"></i> 返回
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" expose-aside-when="(min-width:736px)">
+    <ion-header-bar class="bar-assertive">
+      <h1 class="title">砼行E5管理版</h1>
+    </ion-header-bar>
+    <ion-content class="myMenu">
+      <ion-list>
+        <ion-item menu-close class="item-icon-left" ng-if="username" href="#/app/user/{{username}}">
+          <i class="icon ion-ios-person calm"></i>
+          {{username}}
+        </ion-item>
+
+        <ion-item class="item-divider"></ion-item>
+        <ion-item menu-close class="item-icon-left" href="#/app/consmixs">
+          <p><i class="icon ion-ios-toggle-outline assertive"></i>配比审核</p>
+        </ion-item>
+        <ion-item menu-close class="item-icon-left" href="#/app/plans">
+          <p><i class="icon ion-ios-paper-outline royal"></i>今日生产计划</p>
+        </ion-item>
+        <ion-item menu-close class="item-icon-left" href="#/app/dispatch">
+          <p><i class="icon ion-ios-bookmarks-outline balanced"></i>今日生产情况</p>
+        </ion-item>
+        <!--<ion-item menu-close href="#/app/tasks">
+          生产进度
+        </ion-item>-->
+        <ion-item menu-close class="item-icon-left" href="#/app/shipping">
+          <p><i class="icon ion-ios-pie-outline calm"></i>生产统计查询</p>
+        </ion-item>
+        <ion-item menu-close class="item-icon-left" href="#/app/silo">
+          <p><i class="icon ion-ios-analytics-outline energized"></i>原料当前库存</p>
+        </ion-item>
+        <ion-item class="item-divider">
+          其他
+        </ion-item>
+        <ion-item menu-close class="item-icon-left" href="#/app/settings">
+          <i class="icon ion-ios-cog"></i>
+          设置
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <!--<ion-footer-bar align-title="left" class="bar-light item-icon-left">
+      &lt;!&ndash;<i class="icon ion-social-github"></i>&ndash;&gt;
+      &lt;!&ndash;<h1 class="title">github.com/ifengkou</h1>&ndash;&gt;
+      <p class="title">&copy; 昇升科技</p>
+    </ion-footer-bar>-->
+  </ion-side-menu>
+</ion-side-menus>

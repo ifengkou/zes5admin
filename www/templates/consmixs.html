@@ -1,0 +1,25 @@
+<ion-view view-title="未审核配比">
+  <ion-content class="has-header consmixs">
+    <ion-refresher ng-if="consmixs.length >= 0 || loadError" pulling-text="下拉刷新..."
+                   on-refresh="doRefresh()" refreshing-icon="ion-loading-c"></ion-refresher>
+    <ion-list class="consmixs">
+      <ion-item class="item-icon-right" collection-repeat="consmix in consmixs"
+                collection-item-width="'100%'"
+                collection-item-height="90"
+                href="#/app/consmix/{{consmix.id}}" ng-animate-children="">
+        <div><b>{{consmix.taskId}}</b>
+          <span class="item-note">{{consmix.buildTime | amDateFormat:'MM-DD HH:mm'}}</span>
+          <!--<span class="item-note ago" am-time-ago="consmix.buildTime"></span></div>-->
+        <!--<p>weight：{{consmix.weight}} wCRate：{{consmix.wCRate}} sCRate：{{consmix.sCRate}}</p>-->
+        <p><span>{{consmix.projectName}}</span> </p>
+        <p>
+          <span>生产线{{consmix.productLineId}}</span>
+          <span class="small conStrength">{{consmix.conStrength}}</span>
+          <span class="small consPos">{{consmix.consPos}}</span>
+          <span class="small castMode">{{consmix.castMode}}</span>
+        </p>
+        <p><i class="icon ion-ios-arrow-right"></i></p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
