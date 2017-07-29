@@ -142,7 +142,8 @@
         var currentUser = User.getCurrentUser();
         if (currentUser && currentUser.token) {
           $rootScope.$broadcast("login");
-          $state.go('app.consmixs');
+          //$state.go('app.consmixs');
+          $state.go('app.plans');
         } else {
           $ionicLoading.show({
             noBackdrop: true,

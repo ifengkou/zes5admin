@@ -5,7 +5,7 @@
       $log.debug("PlansService");
       var statData = {};
       var plans = [];
-      var tstatDate ={};
+      var tstatData ={};
       var tplans = [];
       var resource = null;
       var _initResource = function (apiUrl) {
