@@ -5,6 +5,8 @@
       $log.debug("PlansService");
       var statData = {};
       var plans = [];
+      var tstatDate ={};
+      var tplans = [];
       var resource = null;
       var _initResource = function (apiUrl) {
         resource = $resource(apiUrl + '/plans/:id', {id: '@id'}, {
@@ -16,6 +18,14 @@
           stat:{
             method:'get',
             url: apiUrl + "/plans/total"
+          },
+          tlist:{
+            method: 'get',
+            url: apiUrl + '/plans/tomorrow'
+          },
+          tstat:{
+            method:'get',
+            url: apiUrl + "/plans/tomorrow/total"
           }
         });
       };
@@ -32,6 +42,25 @@
       };
       var getPlans = function (callback) {
         return resource.query({
+          accesstoken: User.getCurrentUser().token,
+        }, function (r) {
+          return callback && callback(r);
+        }, function (e) {
+          $log.debug(e);
+        });
+      };
+
+      var getTStat = function (callback) {
+        return resource.tstat({
+          accesstoken: User.getCurrentUser().token,
+        }, function (r) {
+          return callback && callback(r);
+        }, function (e) {
+          $log.debug(e);
+        });
+      };
+      var getTPlans = function (callback) {
+        return resource.tlist({
           accesstoken: User.getCurrentUser().token,
         }, function (r) {
           return callback && callback(r);
@@ -63,6 +92,26 @@
         },
         getStat: function () {
           return statData;
+        },
+        refreshTStat: function () {
+          return getTStat(function(response){
+            tstatData = response.data;
+          });
+        },
+        refreshTPlans: function () {
+          return getTPlans(function (response) {
+            tplans = response.data;
+          });
+        },
+        resetTData: function () {
+          tstatData = {};
+          tplans = [];
+        },
+        getTPlans: function () {
+          return tplans;
+        },
+        getTStat: function () {
+          return tstatData;
         }
       };
     });

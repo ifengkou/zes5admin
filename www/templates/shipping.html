@@ -21,8 +21,8 @@
       </ion-item>
       <ion-item class="item-input stat_item">
           <p class="stat_span row">
-            <span class="col col-50">出票方量:<span class="produceCubes" ng-show="statData.sendCubes">{{statData.sendCubes | number:1}} 方</span></span>
-            <span class="col col-50">调度方量:<span class="planCubes" ng-show="statData.parCubes">{{statData.parCubes | number:1}} 方</span></span>
+            <span class="col col-50">出票方量:<span class="produceCubes" ng-show="statData.sendCubes">{{statData.parCubes | number:1}} 方</span></span>
+            <span class="col col-50">调度方量:<span class="planCubes" ng-show="statData.parCubes">{{statData.sendCubes | number:1}} 方</span></span>
           </p>
       </ion-item>
     </ion-list>
@@ -39,8 +39,8 @@
       <p class="row">
         <span class="col col-40 text_newLine">{{item.projectName}}</span> <!--| limitTo:10-->
         <span class="col col-20 text_newLine">{{item.conStrength}}</span>
-        <span class="col col-20 produceCubes text_align_right">{{item.sendCubes}} 方</span>
-        <span class="col col-20 planCubes text_align_right">{{item.parCubes}} 方</span>
+        <span class="col col-20 produceCubes text_align_right">{{item.parCubes | number:1}} 方</span>
+        <span class="col col-20 planCubes text_align_right">{{item.sendCubes | number:1}} 方</span>
       </p>
     </div>
   </ion-content>

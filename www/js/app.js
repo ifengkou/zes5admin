@@ -131,6 +131,15 @@
             }
           }
         })
+        .state('app.tplans', {
+          url: '/tplans',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/tplans.html',
+              controller: 'TPlansCtrl'
+            }
+          }
+        })
         .state('app.dispatch', {
           url: '/dispatch',
           views: {

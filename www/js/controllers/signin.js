@@ -5,7 +5,7 @@
   'use strict';
   angular.module('gaia.controllers')
     .controller('SignInCtrl', function ($scope, $state, $rootScope, $log, $ionicLoading, $timeout, $ionicModal, User, ENV, Settings, _Sys) {
-      $log.info("SignIn Ctrl in");
+      $log.info("SignIn Ctrl in-----");
       //如果已经登陆，直接跳转projects
       /*var settings = Settings.getSettings();
        if (settings.wlan) {
@@ -138,7 +138,7 @@
       var loginCallback = function (response) {
         $scope.loginData.password = "";
         $ionicLoading.hide();
-        $log.debug("$rootScope.loginCallback");
+        $log.debug("$rootScope.loginCallback---");
         var currentUser = User.getCurrentUser();
         if (currentUser && currentUser.token) {
           $rootScope.$broadcast("login");
@@ -158,8 +158,9 @@
         if ($scope.loginData.username && $scope.loginData.password) {
           var hash = CryptoJS.SHA1($scope.loginData.password);
           var _password = hash.toString(CryptoJS.enc.Base64);
+          $log.info(_password.toUpperCase());
           $ionicLoading.show();
-          User.login($scope.loginData.username, _password).$promise.then(loginCallback, function(e){
+          User.login($scope.loginData.username, _password.toUpperCase()).$promise.then(loginCallback, function(e){
             $ionicLoading.show({
               noBackdrop: true,
               template: "请求失败",
