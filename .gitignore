@@ -4,7 +4,7 @@ platforms/
 .idea/
 www/lib
 
-config.js
+# config.js
 .cov
 coverage
 node_modules
