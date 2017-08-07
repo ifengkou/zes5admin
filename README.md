@@ -9,6 +9,10 @@
 
 	npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+clone 项目
+
+	git clone git@github.com:ifengkou/zes5admin.git
+
 安装特定版本的cordova 和 特定版本的ionic
 
 	npm install -g cordova@5.0.0
@@ -20,13 +24,9 @@
 	#更新入下
 	npm update -g cordova ionic
 
-安装 brew
+安装 bower
 
 	cnpm install bower -g
-
-clone 项目
-
-	git clone git@github.com:ifengkou/zes5admin.git
 
 安装项目依赖 和 相关组件
 

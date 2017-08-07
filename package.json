@@ -1,6 +1,6 @@
 {
   "name": "zes5admin",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "zes5admin: ZES5 ADMIN project",
   "dependencies": {
     "gulp": "^3.5.6",
