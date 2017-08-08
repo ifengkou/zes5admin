@@ -52,7 +52,7 @@ clone 项目
 
 	ionic serve
 
-添加平台
+添加平台 JNKM, qcwfwf zb/.
 
 	ionic platform add android
 	ionic build android
