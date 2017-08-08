@@ -162,9 +162,10 @@
           //$log.info(_password.toUpperCase());
           $ionicLoading.show();
           User.login($scope.loginData.username, _password.toUpperCase()).$promise.then(loginCallback, function(e){
+            var _message=$scope.api+":"+e.status+":"+e.statusText+":"+e.data;
             $ionicLoading.show({
               noBackdrop: true,
-              template: "请求失败",
+              template: "请求失败," + _message,
               duration: 1000
             });
           });
