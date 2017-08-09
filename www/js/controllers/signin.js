@@ -23,7 +23,7 @@
           duration: 500
         });
         $timeout(function () {
-          $state.go('app.consmixs');
+          $state.go('app.plans');
         }, 400);
 
       }
